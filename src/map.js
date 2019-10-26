@@ -260,7 +260,7 @@ function showImg(obj) {
     text.style.visibility = style.visibility = "visible";
     modal.style.display = style.display = "flex";
 
-    let file = 'images/' + obj.alt;
+    let file = 'src/images/' + obj.alt;
     frame.style.backgroundImage = "url(" + file + ")";
 }
 

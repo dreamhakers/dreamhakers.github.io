@@ -1,50 +1,42 @@
 <html>
 <head>
 	<title>Карта Мира Сновидений</title>
-
+	<link rel="stylesheet" href="./css/map.css">
+	<script src="./script/map-dev.js"></script>
 </head>
-<link rel="stylesheet" href="./css/map.css">
-<body >
-	
-		
+<body onload="start()" onresize="reload()" cz-shortcut-listen="true">
 	<div id="space">
-	
+		<!--Container Nav -->
+		<input id="toggle" type="checkbox">
+		<label class="toggle-container" for="toggle">
+			<span class="button button-toggle"></span>
+		</label>
+		
+		<nav class="nav nav-bar">
+			<a rel="nofollow" rel="noreferrer" class="nav-item" onclick="showAllImg()">Show All Img</a>
+			<a rel="nofollow" rel="noreferrer" class="nav-item" onclick="hidewAllImg()">Hidew All Img</a>
+			<a rel="nofollow" rel="noreferrer" class="nav-item" onclick="showThreeWorld()">Show Three World</a>
+			<a rel="nofollow" rel="noreferrer" class="nav-item" onclick="hideThreeWorld()">Hide Three World</a>
+		</nav>
 		<!--Container Nav -->
 		<!--Container Map -->
-		<img id="image" src="Dreamland-Map.jpg" usemap="#map">
+		<img id="image" src="./images/Dreamland-Map.jpg" usemap="#map">
 		<map name="map" id="map">
-			<!--
-				x:y | top-left
-				x:y | top-right
-				x:y | bottom-right
-				x:y | center
-				x:y | bottom-left
-				
-			-->
-			<area class="polygon" shape="poly" coords="
-			3 3, 
-        1418 3,
-        
-		1418 950,
-        1380 1410,
-        
-		1330 1280,
-		1300 1110,
-		1250 1160,
-		1150 1150,
-        1000 1000,
-        770 950,
-        560 960,
-        540 1040,
-        420 1000,
-        
-		230 1050,
-        230 1050,
-        210 1170,
-        40 1410,
-        
-		3 1100 " href="" alt="Многоугольник" >
 		</map>
+		<!--Container Map -->
+		<!--Container for Show All Img -->
+		<div id="containerImg">
+		</div>
+		<!--Container for Show All Img -->
+		<!--Container for Show Img -->
+		<div onclick="clickOnImg()" ondblclick="fdblclick()" id="blend"></div>
+		<div onmouseout="mouseOut()" onclick="clickOnImg()" id="frame"></div>
+		<!--Container for Show Img -->
 	</div>
+	<!--Container Modal for Show Text -->
+	<div id="modal" class="modal">
+		<div onclick="clickOnImg()" ondblclick="fdblclick()" id="text"></div>
+	</div>
+	<!--Container Modal for Show Text -->
 </body>
 </html>

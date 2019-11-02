@@ -1,8 +1,8 @@
  
 const gulp = require('gulp');
-const autoprefixer = require('gulp-autoprefixer');//подстановка для кроссбраузерности
-const browserSync = require('browser-sync').create();//синхронизация браузера
-const less = require('gulp-less');//препроцессор less
+const autoprefixer = require('gulp-autoprefixer');
+const browserSync = require('browser-sync').create();
+const less = require('gulp-less');
 
 const config = {
 	src: './src',
@@ -10,13 +10,13 @@ const config = {
 		src: '/index.html'
     },
     css: {
-		watch: '/**/*.less',
-        src: '/**/*.less',
+		watch: '/less/*.less',
+        src: '/less/*.less',
         dest: '/css'
 	}
 };
 const jsFiles = [
-	'./src/map.js',
+	'./src/script/map.js',
 ];
 
 function html(){

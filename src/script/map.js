@@ -2,10 +2,10 @@ let image, curarea, frame, text, modal, blend, mylatesttap, map, containerImg;
 
 var areasObject = {
     areasWorld: [
-        { shape: "poly", coords: "3 3,1418 3,1418 950,1380 1410,1330 1280,1300 1110,1250 1160,1150 1150,1000 1000,770 950,560 960,540 1040,420 1000,230 1050,230 1050,210 1170,40 1410,3 1100", alt: "upper-world.gif", title: "Верхний Мир. Мир Светлых",class:"polygon", href: "" },
-        // { shape: "poly", coords: "3,3,1406,3,1406,1350,1000,1000,200,1000,3,1350", alt: "upper-world.gif", title: "Верхний Мир. Мир Светлых", href: "" },
-        { shape: "rect", coords: "2,997,1416,1572", alt: "middle-world.gif", title: "Срединный Мир - Мир Подобный Миру", href: "" },
-        { shape: "rect", coords: "2,1586,1416,2560", alt: "underworld.gif", title: "Нижний Мир. Демонические", href: "" },
+        // { shape: "poly", coords: "3 3,1418 3,1418 950,1380 1410,1330 1280,1300 1110,1250 1160,1150 1150,1000 1000,770 950,560 960,540 1040,420 1000,230 1050,230 1050,210 1170,40 1410,3 1100", alt: "upper-world.gif", title: "Верхний Мир. Мир Светлых",class:"polygon", href: "" },
+        { shape: "rect", coords: "7,3,  1406,980", alt: "", title: "Верхний Мир. Мир Светлых", href: "" },
+        { shape: "rect", coords: "2,997,1416,1572", alt: "", title: "Срединный Мир - Мир Подобный Миру", href: "" },
+        { shape: "rect", coords: "2,1586,1416,2560", alt: "", title: "Нижний Мир. Демонические", href: "" },
 
     ],
     areas: [
@@ -144,6 +144,11 @@ function reload() {
     location.href = location.pathname;
 }
 
+function hideNavMenu() {
+    let getButtonToggle = document.querySelector('.button-toggle');
+    getButtonToggle.click();
+}
+
 function start() {
     image = document.getElementById("image");
     frame = document.getElementById("frame");
@@ -260,7 +265,7 @@ function showImg(obj) {
     text.style.visibility = style.visibility = "visible";
     modal.style.display = style.display = "flex";
 
-    let file = 'src/images/' + obj.alt;
+    let file = 'src/images/gif/' + obj.alt;
     frame.style.backgroundImage = "url(" + file + ")";
 }
 
@@ -292,17 +297,20 @@ function fdblclick() {
 
 
 function showAllImg() {
-    start();
-    let areas = document.getElementById("map").areas;
-    for (let i = 0; i < areas.length; i++) {
-        let area = areas[i];
-        let coord = area.coords.split(",");
-        let file = 'images/' + area.alt;
-        let containerImgBlock;
-        let containerFrameBlock;
-        createBlock(i, containerImgBlock, 'blend', coord);
-        createBlock(i, containerFrameBlock, 'frame', coord, file);
-    }
+    hideNavMenu();
+    // setTimeout(function(){},0);
+        start();
+        let areas = document.getElementById("map").areas;
+        for (let i = 0; i < areas.length; i++) {
+            let area = areas[i];
+            let coord = area.coords.split(",");
+            let file = 'src/images/gif/' + area.alt;
+            let containerImgBlock;
+            let containerFrameBlock;
+            createBlock(i, containerImgBlock, 'blend', coord);
+            createBlock(i, containerFrameBlock, 'frame', coord, file);
+        }
+    
 }
 
 function createBlock(i, nameBlock, className, coord, file) {
@@ -322,24 +330,21 @@ function createBlock(i, nameBlock, className, coord, file) {
 }
 
 function hidewAllImg() {
+    hideNavMenu();
     clearHTML(containerImg);
 }
 
 function showThreeWorld() {
+    hideNavMenu();
     clearHTML(map);
     clearHTML(containerImg);
     createAttributeMapArea(areasObject.areasWorld);
     calcAreaCoords();
 }
 function hideThreeWorld() {
+    hideNavMenu();
     clearHTML(map);
     start();
 }
-
-
-
-
-
-
 
 

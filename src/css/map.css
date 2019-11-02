@@ -30,8 +30,6 @@ body {
 body {
     position: relative;
     font-family: sans-serif;
-    display: flex;
-    justify-content: center;
 }
 
 img {
@@ -50,6 +48,8 @@ img {
     color: #e4d5b8;
     position: absolute;
     bottom: 0;
+    text-align: center;
+    width: 100%;
 }
 .author a{
     color: #e4d5b8;
